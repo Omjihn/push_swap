@@ -6,7 +6,7 @@
 #    By: gbricot <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/04 13:32:39 by gbricot           #+#    #+#              #
-#    Updated: 2023/03/06 15:47:26 by gbricot          ###   ########.fr        #
+#    Updated: 2023/05/08 14:33:13 by gbricot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,14 +22,14 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 $(NAME): $(MY_OBJECTS)
-	ar cr $(NAME) $(MY_OBJECTS)
+	@ar cr $(NAME) $(MY_OBJECTS)
 
 all: $(NAME)
 
 clean:
-	rm -f $(MY_OBJECTS)
+	@rm -f $(MY_OBJECTS)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all

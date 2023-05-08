@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/03 09:20:22 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/08 15:01:36 by gbricot          ###   ########.fr       */
+/*   Created: 2023/02/02 08:06:39 by gbricot           #+#    #+#             */
+/*   Updated: 2023/02/10 11:25:37 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../src/push_swap.h"
 
-int	ft_atoi(const char *nptr)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int	i;
-	int	sign;
-	int	result;
+	unsigned char			*temp_dest;
+	unsigned const char		*temp_src;
+	unsigned int			i;
 
-	sign = 1;
+	temp_dest = dest;
+	temp_src = src;
 	i = 0;
-	result = 0;
-	while (nptr[i] == ' ' || nptr[i] == '\v' || nptr[i] == '\t')
-		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
+	while (i < n)
 	{
-		if (nptr[i] == '-')
-			sign *= -1;
+		temp_dest[i] = temp_src[i];
 		i++;
 	}
-	while (nptr[i] && nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		result *= 10;
-		result += nptr[i] - 48;
-		i++;
-	}
-	return (result * sign);
+	return (dest);
 }

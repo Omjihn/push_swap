@@ -5,82 +5,60 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 16:40:50 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/04 16:53:57 by gbricot          ###   ########.fr       */
+/*   Created: 2023/05/06 15:26:08 by gbricot           #+#    #+#             */
+/*   Updated: 2023/05/08 19:25:44 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_check(int *a)
+int	ft_is_sort(t_stack *a, t_stack *b)
 {
 	int	i;
-	int	j;
 
-	i = 1;
-	while (a[i])
+	if (b->len != 0)
+		return (0);
+	i = 0;
+	while (i < a->len - 1)
 	{
-		j = i - 1;
-		while (j >= 0)
-		{
-			if (a[i] == a[j])
-			{
-				free (a);
-				exit(ft_printf("Error\n"));
-			}
-			j--;
-		}
+		if (a->list[i] > a->list[i + 1])
+			return (0);
 		i++;
 	}
+	return (1);
 }
 
-int	*ft_split_arg(char *av)
+
+
+void	ft_push_swap(t_stack *a, t_stack *b)
 {
-	int	in_nb;
 	int	i;
-	int	len;
-
-	i = 0;
-	while (av[i])
-	{
-		if (' ' || '\t' || '\v')
-			i++;
-
-
-int	*ft_put_in_tab(int ac, char **av)
-{
-	char	**arg;
-	int	*a;
-	int	i;
-
-	if (ac == 2)
-		return (ft_one_arg(av[1]));
-	a = (int *) ft_calloc (sizeof(int), ac - 1);
-	if (!a)
-		exit (ft_printf("Memory error\n"));
-	i = 1;
-	while (av[i])
-	{
-		a[i - 1] = ft_atoi(av[i]);
-		i++;
-	}
-	return (a);
-}
-
-int	main(int ac, char **av)
-{
-	int	*a;
-	int	i;
-
-	if (ac == 1)
-		exit (ft_printf("Error please enter numbers\n"));
-	a = ft_put_in_tab(ac ,av);
-	ft_check(a);
-	i = 0;
-	while (i < ac - 1)
-	{
-		ft_printf("%d\n", a[i]);
-		i++;
-	}
-	return (0);
+	
+	ft_printf("Is sort ? %d\n", ft_is_sort(a, b));
+	ft_printf("______init______\n");
+	i = 0; //debug
+        while (i < a->len) //debug
+        {
+		ft_printf("%d		%d\n", a->list[i], b->list[i]);
+                i++; //debug
+        }
+	ft_printf("\na		b\n-		-\n");
+	ft_sa(a);
+	ft_printf("_______sa_______\n");
+	i = 0; //debug
+        while (i < a->len) //debug
+        {
+                ft_printf("%d		%d\n", a->list[i], b->list[i]); //debug
+                i++; //debug
+        }
+	ft_printf("\na		b\n-		-\n");
+	ft_pb(a, b);
+	ft_printf("_______pb_______\n");
+	i = 0; //debug
+        while (i < a->len + b->len) //debug
+        {
+                ft_printf("%d		%d\n", a->list[i], b->list[i]); //debug
+                i++; //debug
+        }
+	ft_printf("\na		b\n-		-\n");
 }

@@ -1,45 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operation.c                                        :+:      :+:    :+:   */
+/*   ft_free_all.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 16:53:08 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/03 17:26:24 by gbricot          ###   ########.fr       */
+/*   Created: 2023/05/06 15:34:16 by gbricot           #+#    #+#             */
+/*   Updated: 2023/05/06 15:37:25 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_sa(int *a)
-{
-	int	temp;
+#include "push_swap.h"
 
-	temp = a[0];
-	a[0] = a[1];
-	a[1] = temp;
+void	ft_free_all(t_stack *a, t_stack *b)
+{
+	free(a->list);
+	free (a);
+	free (b->list);
+	free (b);
+	exit (42);
 }
-
-void	ft_sb(int *b)
-{
-	int	temp;
-
-	temp = b[0];
-	b[0] = b[1];
-	b[1] = temp;
-}
-
-void	ft_ss(int *a, int *b)
-{
-	ft_sa(a);
-	ft_sb(b);
-}
-
-void	ft_pa(int *a, int *b)
-{
-	int 	i;
-	int	temp;
-
-	if (!*b)
-		return ;
-
-		
