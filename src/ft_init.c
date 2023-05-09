@@ -12,16 +12,16 @@
 
 #include "push_swap.h"
 
-void	ft_init_list(t_stack *stack)
+void	ft_init_list(t_stack *stack, int len)
 {
 	int	i;
 
 	i = 0;
-	while (i < stack->len - 1)
+	while (i < len)
 	{
-		stack->list = (t_nb *) malloc (sizeof(t_nb) * 1);
-		stack->list->nb = 0;
-		stack->list->index = 0;
+		stack->list[i] = (t_nb *) malloc (sizeof(t_nb) * 1);
+		stack->list[i]->nb = 0;
+		stack->list[i]->index = 0;
 		i++;
 	}
 }
@@ -40,13 +40,13 @@ t_stack	*ft_split_int(char *av)
 		exit (ft_printf("Memory error\n"));
 	while (arg[res->len])
 		res->len++;
-	res->list = (t_nb *) ft_calloc (sizeof(t_nb), res->len);
+	res->list = (t_nb **) ft_calloc (sizeof(t_nb *), res->len);
 	if (!res->list)
 		exit (ft_printf("Memory error\n"));
 	i = 0;
-	ft_init_list(res);
+	ft_init_list(res, res->len);
 	while (i < res->len)
-		res->list[i++].nb = ft_atoi(arg[i]);
+		res->list[i++]->nb = ft_atoi(arg[i]);
 	i = 0;
 	while (arg[i])
 		free (arg[i++]);
@@ -64,18 +64,17 @@ t_stack	*ft_put_in_tab(int ac, char **av)
 	a = (t_stack *) malloc (sizeof(t_stack));
 	if (!a)
 		exit (ft_printf("Memory error\n"));
-	a->list = (t_nb *) malloc (sizeof(t_nb) * ac - 1);
+	a->list = (t_nb **) ft_calloc (sizeof(t_nb *), ac - 1);
 	if (!a->list)
                 exit (ft_printf("Memory error\n"));
+	ft_init_list(a, ac - 1);
 	i = 1;
 	while (av[i])
 	{
-		a->list[i - 1].nb = ft_atoi(av[i]);
-		a->list[i - 1].index = 0;
+		a->list[i - 1]->nb = ft_atoi(av[i]);
 		i++;
 	}
 	a->len = i - 1;
-	ft_init_list(a);
 	return (a);
 }
 
@@ -86,9 +85,8 @@ t_stack	*ft_init_b(int len)
 	b = (t_stack *) ft_calloc(sizeof(t_stack), 1);
 	if (!b)
 		exit (ft_printf("Memory error\n"));
-	b->list = (t_nb *) ft_calloc (sizeof(t_nb), len);
+	b->list = (t_nb **) ft_calloc (sizeof(t_nb *), len);
 	if (!b->list)
 		exit (ft_printf("Memory error\n"));
-	ft_init_list(b);
 	return (b);
 }

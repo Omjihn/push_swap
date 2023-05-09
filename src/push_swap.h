@@ -20,14 +20,14 @@
 
 typedef struct s_nb
 {
-	unsigned int	index;
-	int			nb;
+	int	index;
+	int	nb;
 }			t_nb;
 
 typedef struct s_stack
 {
 	int		len;
-	t_nb	*list;
+	t_nb	**list;
 }			t_stack;
 
 int		ft_atoi(const char *nptr);
@@ -39,7 +39,7 @@ void	ft_check(t_stack *a);
 void	ft_no_numbers(int ac, char **av);
 void	ft_free_all(t_stack *a, t_stack *b);
 void	ft_add_index(t_stack *a);
-void	ft_init_list(t_stack *stack);
+void	ft_init_list(t_stack *stack, int len);
 void	ft_push_swap(t_stack *a, t_stack *b);
 
 /*		OPERATORS		*/

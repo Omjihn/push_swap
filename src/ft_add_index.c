@@ -14,26 +14,29 @@
 
 void	ft_add_index(t_stack *a)
 {
-	int	i;
-	int	j;
-	int	temp[2];
+	int		i;
+	int		j;
+	int		tmp_i;
+	t_nb	*temp;
 
 	j = 0;
 	while (j < a->len)
 	{
 		i = 0;
-		temp[0] = a->list[0].nb;
-		temp[1] = 1;
+		while (a->list[i]->index != 0)
+			i++;
+		temp = a->list[i];
 		while (i < a->len - 1)
 		{
-			if (temp[0] < a->list[i].nb && a->list[i].index == 0)
+			if (temp->nb > a->list[i]->nb && a->list[i]->index == 0)
 			{
-				temp[0] = a->list[i].nb;
-				temp[1] = i + 1;
+				temp = a->list[i];
+				tmp_i = i;
 			}
 			i++;
 		}
 		j++;
-		a->list[temp[1]].index = j;
+		a->list[tmp_i] = temp;
+		a->list[tmp_i]->index = j;
 	}
 }

@@ -14,30 +14,24 @@
 
 void	ft_sa(t_stack *a)
 {
-	int	temp;
+	t_nb	*temp;
 
 	if (a->len == 1)
 		return ;
-	temp = a->list[0].nb;
-	a->list[0].nb = a->list[1].nb;
-	a->list[1].nb = temp;
-	temp = a->list[0].index;
-	a->list[0].index = a->list[1].index;
-	a->list[1].index = temp;
+	temp = a->list[0];
+	a->list[0] = a->list[1];
+	a->list[1] = temp;
 }
 
 void	ft_sb(t_stack *b)
 {
-	int	temp;
+	t_nb	*temp;
 
 	if (b->len == 1)
 		return ;
-	temp = b->list[0].nb;
-	b->list[0].nb = b->list[1].nb;
-	b->list[1].nb = temp;
-	temp = b->list[0].index;
-	b->list[0].index = b->list[1].index;
-	b->list[1].index = temp;
+	temp = b->list[0];
+	b->list[0] = b->list[1];
+	b->list[1] = temp;
 }
 
 void	ft_ss(t_stack *a, t_stack *b)
@@ -55,21 +49,17 @@ void	ft_pa(t_stack *a, t_stack *b)
 	i = a->len - 1;
 	while (i >= 0)
 	{
-		a->list[i + 1].nb = a->list[i].nb;
-		a->list[i + 1].index = a->list[i].index;
+		a->list[i + 1] = a->list[i];
 		i--;
 	}
-	a->list[0].nb = b->list[0].nb;
-	a->list[0].index = b->list[0].index;
+	a->list[0] = b->list[0];
 	i = 0;
 	while (i < b->len - 1)
 	{
-		b->list[i].nb = b->list[i + 1].nb;
-		b->list[i].index = b->list[i + 1].index;
+		b->list[i] = b->list[i + 1];
 		i++;
 	}
-	b->list[b->len - 1].nb = 0;
-	b->list[b->len - 1].index = 0;
+	b->list[b->len - 1] = NULL;
 	b->len--;
 	a->len++;
 }
@@ -83,20 +73,17 @@ void	ft_pb(t_stack *a, t_stack *b)
 	i = b->len - 1;
 	while (i >= 0)
 	{
-		b->list[i + 1].nb = b->list[i].nb;
-		b->list[i + 1].index = b->list[i].index;
+		b->list[i + 1] = b->list[i];
 		i--;
 	}
-	b->list[0].nb = a->list[0].nb;
-	b->list[0].index = a->list[0].index;
+	b->list[0] = a->list[0];
 	i = 0;
 	while (i < a->len - 1)
 	{
-		a->list[i].nb = a->list[i + 1].nb;
+		a->list[i] = a->list[i + 1];
 		i++;
 	}
-	a->list[a->len - 1].nb = 0;
-	a->list[a->len - 1].index = 0;
+	a->list[a->len - 1] = NULL;
 	a->len--;
 	b->len++;
 }

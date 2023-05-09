@@ -50,7 +50,7 @@ void	ft_check(t_stack *a)
 		j = i - 1;
 		while (j >= 0)
 		{
-			if (a->list[i].nb == a->list[j].nb)
+			if (a->list[i]->nb == a->list[j]->nb)
 			{
 				free (a->list);
 				free (a);

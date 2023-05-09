@@ -21,7 +21,7 @@ int	ft_is_sort(t_stack *a, t_stack *b)
 	i = 0;
 	while (i < a->len - 1)
 	{
-		if (a->list[i].nb > a->list[i + 1].nb)
+		if (a->list[i]->nb > a->list[i + 1]->nb)
 			return (0);
 		i++;
 	}
@@ -63,7 +63,7 @@ while (ft_is_sort(a, b) == 0)
 	i = 0; //debug
         while (i < a->len + b->len) //debug
         {
-		ft_printf("%d		%d\n%d		%d\n\n", a->list[i].nb, b->list[i].nb, a->list[i].index, b->list[i].index);
+		ft_printf("%d		%d\n%d		%d\n\n", a->list[i]->nb, b->list[i]->nb, a->list[i]->index, b->list[i]->index);
                 i++; //debug
         }
 	ft_printf("\na		b\n-		-\n");
@@ -72,7 +72,7 @@ while (ft_is_sort(a, b) == 0)
 	i = 0; //debug
         while (i < a->len + b->len) //debug
         {
-		ft_printf("%d		%d\n%d		%d\n\n", a->list[i].nb, b->list[i].nb, a->list[i].index, b->list[i].index);
+		ft_printf("%d		%d\n%d		%d\n\n", a->list[i]->nb, b->list[i]->nb, a->list[i]->index, b->list[i]->index);
                 i++; //debug
         }
 	ft_printf("\na		b\n-		-\n");
@@ -81,7 +81,7 @@ while (ft_is_sort(a, b) == 0)
 	i = 0; //debug
         while (i < a->len + b->len) //debug
         {
-		ft_printf("%d		%d\n%d		%d\n\n", a->list[i].nb, b->list[i].nb, a->list[i].index, b->list[i].index);
+		ft_printf("%d		%d\n%d		%d\n\n", a->list[i]->nb, b->list[i]->nb, a->list[i]->index, b->list[i]->index);
                 i++; //debug
         }
 	ft_printf("\na		b\n-		-\n");
@@ -90,7 +90,7 @@ while (ft_is_sort(a, b) == 0)
         i = 0; //debug
         while (i < a->len + b->len) //debug
         {
-                ft_printf("%d		%d\n%d		%d\n\n", a->list[i].nb, b->list[i].nb, a->list[i].index, b->list[i].index); //debug
+                ft_printf("%d		%d\n%d		%d\n\n", a->list[i]->nb, b->list[i]->nb, a->list[i]->index, b->list[i]->index); //debug
                 i++; //debug
         }
         ft_printf("\na		b\n-		-\n");

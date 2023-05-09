@@ -15,35 +15,35 @@
 void	ft_rra(t_stack *a)
 {
 	int	i;
-	int	temp;
+	t_nb	*temp;
 
 	if (a->len == 0)
 		return ;
 	i = a->len - 1;
-	temp = a->list[a->len - 1].nb;
+	temp = a->list[a->len - 1];
 	while (i > 0)
 	{
-		a->list[i].nb = a->list[i - 1].nb;
+		a->list[i] = a->list[i - 1];
 		i--;
 	}
-	a->list[0].nb = temp;
+	a->list[0] = temp;
 }
 
 void	ft_rrb(t_stack *b)
 {
         int     i;
-        int     temp;
+        t_nb	*temp;
 
 	if (b->len == 0)
 		return ;
 	i = b->len - 1;
-	temp = b->list[b->len - 1].nb;
+	temp = b->list[b->len - 1];
 	while (i > 0)
 	{
-		b->list[i].nb = b->list[i - 1].nb;
+		b->list[i] = b->list[i - 1];
 		i--;
 	}
-	b->list[0].nb = temp;
+	b->list[0] = temp;
 }
 
 void	ft_rrr(t_stack *a, t_stack *b)
