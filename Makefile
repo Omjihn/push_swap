@@ -6,7 +6,7 @@
 #    By: gbricot <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 16:29:58 by gbricot           #+#    #+#              #
-#    Updated: 2023/05/08 19:00:01 by gbricot          ###   ########.fr        #
+#    Updated: 2023/05/09 19:28:45 by gbricot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ SRC =	src/main.c \
 	src/operation_1.c \
 	src/operation_2.c \
 	src/operation_3.c \
+	src/ft_check.c \
+	src/ft_add_index.c \
 	src/ft_init.c \
 	src/ft_free_all.c \
 	libft/ft_atoi.c \

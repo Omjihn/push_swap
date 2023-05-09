@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:53:08 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/08 18:44:45 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/09 19:23:26 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,28 @@ void	ft_sa(t_stack *a)
 {
 	int	temp;
 
-	temp = a->list[0];
-	a->list[0] = a->list[1];
-	a->list[1] = temp;
+	if (a->len == 1)
+		return ;
+	temp = a->list[0].nb;
+	a->list[0].nb = a->list[1].nb;
+	a->list[1].nb = temp;
+	temp = a->list[0].index;
+	a->list[0].index = a->list[1].index;
+	a->list[1].index = temp;
 }
 
 void	ft_sb(t_stack *b)
 {
 	int	temp;
 
-	temp = b->list[0];
-	b->list[0] = b->list[1];
-	b->list[1] = temp;
+	if (b->len == 1)
+		return ;
+	temp = b->list[0].nb;
+	b->list[0].nb = b->list[1].nb;
+	b->list[1].nb = temp;
+	temp = b->list[0].index;
+	b->list[0].index = b->list[1].index;
+	b->list[1].index = temp;
 }
 
 void	ft_ss(t_stack *a, t_stack *b)
@@ -42,19 +52,24 @@ void	ft_pa(t_stack *a, t_stack *b)
 
 	if (b->len == 0)
 		return ;
-	i = a->len;
-	while (i > 0)
+	i = a->len - 1;
+	while (i >= 0)
 	{
-		a->list[i - 1] = a->list[i];
+		a->list[i + 1].nb = a->list[i].nb;
+		a->list[i + 1].index = a->list[i].index;
 		i--;
 	}
-	a->list[0] = b->list[0];
-	i = b->len;
-	while (i > 0)
+	a->list[0].nb = b->list[0].nb;
+	a->list[0].index = b->list[0].index;
+	i = 0;
+	while (i < b->len - 1)
 	{
-		b->list[i - 1] = b->list[i];
-		i--;
+		b->list[i].nb = b->list[i + 1].nb;
+		b->list[i].index = b->list[i + 1].index;
+		i++;
 	}
+	b->list[b->len - 1].nb = 0;
+	b->list[b->len - 1].index = 0;
 	b->len--;
 	a->len++;
 }
@@ -65,19 +80,23 @@ void	ft_pb(t_stack *a, t_stack *b)
 
 	if (a->len == 0)
 		return ;
-	i = b->len;
-	while (i > 0)
+	i = b->len - 1;
+	while (i >= 0)
 	{
-		b->list[i - 1] = b->list[i];
+		b->list[i + 1].nb = b->list[i].nb;
+		b->list[i + 1].index = b->list[i].index;
 		i--;
 	}
-	b->list[0] = a->list[0];
-	i = b->len;
-	while (i > 0)
+	b->list[0].nb = a->list[0].nb;
+	b->list[0].index = a->list[0].index;
+	i = 0;
+	while (i < a->len - 1)
 	{
-		a->list[i - 1] = a->list[i];
-		i--;
+		a->list[i].nb = a->list[i + 1].nb;
+		i++;
 	}
+	a->list[a->len - 1].nb = 0;
+	a->list[a->len - 1].index = 0;
 	a->len--;
 	b->len++;
 }

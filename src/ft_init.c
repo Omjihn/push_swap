@@ -6,58 +6,22 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 15:20:26 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/08 16:10:22 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/09 19:25:58 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_no_numbers(int ac, char **av)
+void	ft_init_list(t_stack *stack)
 {
 	int	i;
-	int	tab;
 
 	i = 0;
-	tab = 1;
-	while (tab < ac)
+	while (i < stack->len - 1)
 	{
-		i = 0;
-		while (av[tab][i])
-		{
-			if ((av[tab][i] < '0' || av[tab][i] > '9') &&
-					(av[tab][i] != ' ' &&
-					av[tab][i] != '-' &&
-					av[tab][i] != '+' &&
-					av[tab][i] != '\v' &&
-					av[tab][i] != '\t'))
-				exit(ft_printf("%s", MSG_NB));
-			i++;
-		}
-		tab++;
-	}
-}
-
-
-
-void	ft_check(t_stack *a)
-{
-	int	i;
-	int	j;
-
-	i = 1;
-	while (i < a->len)
-	{
-		j = i - 1;
-		while (j >= 0)
-		{
-			if (a->list[i] == a->list[j])
-			{
-				free (a->list);
-				free (a);
-				exit(ft_printf("Error\n"));
-			}
-			j--;
-		}
+		stack->list = (t_nb *) malloc (sizeof(t_nb) * 1);
+		stack->list->nb = 0;
+		stack->list->index = 0;
 		i++;
 	}
 }
@@ -76,12 +40,13 @@ t_stack	*ft_split_int(char *av)
 		exit (ft_printf("Memory error\n"));
 	while (arg[res->len])
 		res->len++;
-	res->list = (int *) malloc (sizeof(int) * res->len);
+	res->list = (t_nb *) ft_calloc (sizeof(t_nb), res->len);
 	if (!res->list)
 		exit (ft_printf("Memory error\n"));
 	i = 0;
+	ft_init_list(res);
 	while (i < res->len)
-		res->list[i++] = ft_atoi(arg[i]);
+		res->list[i++].nb = ft_atoi(arg[i]);
 	i = 0;
 	while (arg[i])
 		free (arg[i++]);
@@ -99,16 +64,18 @@ t_stack	*ft_put_in_tab(int ac, char **av)
 	a = (t_stack *) malloc (sizeof(t_stack));
 	if (!a)
 		exit (ft_printf("Memory error\n"));
-	a->list = (int *) malloc (sizeof(int) * ac - 1);
+	a->list = (t_nb *) malloc (sizeof(t_nb) * ac - 1);
 	if (!a->list)
                 exit (ft_printf("Memory error\n"));
 	i = 1;
 	while (av[i])
 	{
-		a->list[i - 1] = ft_atoi(av[i]);
+		a->list[i - 1].nb = ft_atoi(av[i]);
+		a->list[i - 1].index = 0;
 		i++;
 	}
 	a->len = i - 1;
+	ft_init_list(a);
 	return (a);
 }
 
@@ -119,8 +86,9 @@ t_stack	*ft_init_b(int len)
 	b = (t_stack *) ft_calloc(sizeof(t_stack), 1);
 	if (!b)
 		exit (ft_printf("Memory error\n"));
-	b->list = (int *) ft_calloc (sizeof(int), len);
+	b->list = (t_nb *) ft_calloc (sizeof(t_nb), len);
 	if (!b->list)
 		exit (ft_printf("Memory error\n"));
+	ft_init_list(b);
 	return (b);
 }
