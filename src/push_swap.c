@@ -28,6 +28,43 @@ int	ft_is_sort(t_stack *a, t_stack *b)
 	return (1);
 }
 
+
+
+void	ft_split_stack(t_stack *a, t_stack *b)
+{
+	int	index;
+
+	index = 1;
+	while (index <= (a->len + b->len) / 2)
+	{
+		if (a->list[0]->index > (a->len + b->len) / 2)
+		{
+			ft_pb(a, b);
+			index++;
+			ft_printf("pb\n");
+		}
+		else if (a->list[1]->index > (a->len + b->len) / 2)
+		{
+			ft_sa(a);
+			ft_pb(a, b);
+			index++;
+			ft_printf("sa\npb\n");
+		}
+		else if (a->list[a->len - 1]->index > (a->len + b->len) / 2)
+		{
+			ft_rra(a);
+			ft_pb(a, b);			
+			index++;
+			ft_printf("rra\npb\n");
+		}
+		else
+		{
+			ft_ra(a);
+			ft_printf("ra\n");
+		}
+	}
+}
+
 void	ft_push_swap(t_stack *a, t_stack *b)
 {
 	int	i;
@@ -42,6 +79,21 @@ void	ft_push_swap(t_stack *a, t_stack *b)
 		ft_printf("nb: %d - index: %d\n", a->list[i]->nb, a->list[i]->index);
 		i++;
 	}
+	ft_split_stack(a, b);
+	i = 0;
+	ft_printf("Stack a:\n");
+	while (i < a->len)
+        {
+                ft_printf("nb: %d - index: %d\n", a->list[i]->nb, a->list[i]->index);
+                i++;
+        }
+	i = 0;
+	ft_printf("Stack b:\n");
+	while (i < b->len)
+        {
+                ft_printf("nb: %d - index: %d\n", b->list[i]->nb, b->list[i]->index);
+                i++;
+        }
 	while(ft_is_sort(a, b) == 0)
 	{
 		ft_free_all(a, b);
