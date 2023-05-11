@@ -6,37 +6,41 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 16:59:46 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/09 17:55:07 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/11 18:21:25 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	ft_add_one(t_stack *a, int index)
+{
+	int	i;
+	t_nb	*res;
+
+	i = 0;
+	while (a->list[i]->index > 0)
+		i++;
+	res = a->list[i];
+	while(i < a->len)
+	{
+		if (res->nb > a->list[i]->nb && a->list[i]->index == 0)
+			res = a->list[i];
+		i++;
+	}
+	res->index = index;
+	return (index + 1);
+}
+
 void	ft_add_index(t_stack *a)
 {
-	int		i;
-	int		j;
-	int		tmp_i;
-	t_nb	*temp;
+	int	i;
+	int	index;
 
-	j = 0;
-	while (j < a->len)
+	i = 0;
+	index = 1;
+	while (i < a->len)
 	{
-		i = 0;
-		while (a->list[i]->index != 0)
-			i++;
-		temp = a->list[i];
-		while (i < a->len - 1)
-		{
-			if (temp->nb > a->list[i]->nb && a->list[i]->index == 0)
-			{
-				temp = a->list[i];
-				tmp_i = i;
-			}
-			i++;
-		}
-		j++;
-		a->list[tmp_i] = temp;
-		a->list[tmp_i]->index = j;
+		index = ft_add_one(a, index);
+		i++;
 	}
 }

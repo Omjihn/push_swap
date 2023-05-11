@@ -32,6 +32,7 @@ typedef struct s_stack
 
 int		ft_atoi(const char *nptr);
 int		ft_is_sort(t_stack *a, t_stack *b);
+int		ft_add_one(t_stack *a, int index);
 
 char	**ft_split(char const *s, char c);
 

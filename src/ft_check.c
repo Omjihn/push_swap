@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:59:24 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/09 18:00:02 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/11 19:07:01 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,8 @@ void	ft_check(t_stack *a)
 		{
 			if (a->list[i]->nb == a->list[j]->nb)
 			{
-				free (a->list);
-				free (a);
-				exit(ft_printf("Error\n"));
+				ft_printf("Error\n");
+				ft_free_all(a, NULL);
 			}
 			j--;
 		}

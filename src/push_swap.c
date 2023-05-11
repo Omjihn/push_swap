@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 15:26:08 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/09 19:28:13 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/11 19:10:15 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,23 @@ int	ft_is_sort(t_stack *a, t_stack *b)
 
 void	ft_push_swap(t_stack *a, t_stack *b)
 {
+	int	i;
+
 	if (ft_is_sort(a, b) == 0)
 		ft_add_index(a);
-
+	else
+		return ;
+	i = 0;
+	while (i < a->len)
+	{
+		ft_printf("nb: %d - index: %d\n", a->list[i]->nb, a->list[i]->index);
+		i++;
+	}
+	while(ft_is_sort(a, b) == 0)
+	{
+		ft_free_all(a, b);
+	}
+}
 	//while (ft_is_sort(a, b) == 0)
 
 
@@ -55,6 +69,7 @@ while (ft_is_sort(a, b) == 0)
                 }
         }
 */
+/*
 //_________________________________TEST_______________________________\\
 	
 	int	i;
@@ -95,3 +110,4 @@ while (ft_is_sort(a, b) == 0)
         }
         ft_printf("\na		b\n-		-\n");
 }
+*/

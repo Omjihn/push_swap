@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 15:34:16 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/06 15:37:25 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/11 19:05:25 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,20 @@
 
 void	ft_free_all(t_stack *a, t_stack *b)
 {
+	int	i;
+
+	i = 0;
+	while (i < a->len)
+	{
+		free (a->list[i]);
+		i++;
+	}
 	free(a->list);
 	free (a);
-	free (b->list);
-	free (b);
+	if (b)
+	{
+		free (b->list);
+		free (b);
+	}
 	exit (42);
 }
