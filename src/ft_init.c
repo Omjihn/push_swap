@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 15:20:26 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/09 19:25:58 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/12 16:29:14 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ t_stack	*ft_split_int(char *av)
 	res->list = (t_nb **) ft_calloc (sizeof(t_nb *), res->len);
 	if (!res->list)
 		exit (ft_printf("Memory error\n"));
-	i = 0;
+	i = -1;
 	ft_init_list(res, res->len);
-	while (i < res->len)
-		res->list[i++]->nb = ft_atoi(arg[i]);
+	while (++i < res->len)
+		res->list[i]->nb = ft_atoi(arg[i]);
 	i = 0;
 	while (arg[i])
 		free (arg[i++]);

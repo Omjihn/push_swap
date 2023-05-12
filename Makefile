@@ -6,11 +6,15 @@
 #    By: gbricot <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 16:29:58 by gbricot           #+#    #+#              #
-#    Updated: 2023/05/09 19:28:45 by gbricot          ###   ########.fr        #
+#    Updated: 2023/05/12 16:20:53 by gbricot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
+
+CC = gcc
+
+CFLAGS = -Wall -Wextra -Werror
 
 SRC =	src/main.c \
 	src/push_swap.c \
@@ -19,6 +23,8 @@ SRC =	src/main.c \
 	src/operation_3.c \
 	src/ft_check.c \
 	src/ft_add_index.c \
+	src/ft_split_stack.c \
+	src/ft_sort_stacks.c \
 	src/ft_init.c \
 	src/ft_free_all.c \
 	libft/ft_atoi.c \
@@ -29,10 +35,6 @@ SRC =	src/main.c \
 OBJ = $(SRC:.c=.o)
 
 LIB = 	printf/libftprintf.a
-
-CC = gcc
-
-CFLAG = -Wall -Wextra -Werror
 
 $(NAME): $(OBJ)
 	@cd printf && make
