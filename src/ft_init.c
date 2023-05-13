@@ -28,7 +28,7 @@ void	ft_init_list(t_stack *stack, int len)
 
 t_stack	*ft_split_int(char *av)
 {
-	char	*arg;
+	char	**arg;
 	int	i;
 	t_stack	*res;
 

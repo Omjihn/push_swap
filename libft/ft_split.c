@@ -24,11 +24,11 @@ static int	ft_tab_cnt(char const *s, char *c)
 		while ((s[i] && s[i] == c[0]) || (s[i] && s[i] == c[1])
 				|| (s[i] && s[i] == c[2]))
 			i++;
-		if ((s[i] && s[i] != c[0]) || (s[i] && s[i] != c[1])
-				|| (s[i] && s[i] != c[2]))
+		if ((s[i] && s[i] != c[0]) && (s[i] && s[i] != c[1])
+				&& (s[i] && s[i] != c[2]))
 			tab++;
-		while ((s[i] && s[i] != c[0]) || (s[i] && s[i] != c[1])
-				|| (s[i] && s[i] != c[2]))
+		while ((s[i] && s[i] != c[0]) && (s[i] && s[i] != c[1])
+				&& (s[i] && s[i] != c[2]))
 			i++;
 	}
 	return (tab);
@@ -44,13 +44,13 @@ static	void	ft_put_res(char **res, const char *s, char *c)
 	tab = 0;
 	while (s[i])
 	{
-		if ((s[i] && s[i] != c[0]) || (s[i] && s[i] != c[1])
-  				|| (s[i] && s[i] != c[2]))
+		if ((s[i] && s[i] != c[0]) && (s[i] && s[i] != c[1])
+  				&& (s[i] && s[i] != c[2]))
 		{
 			size = i;
 			while ((s[size] && s[size] != c[0])
-					|| (s[size] && s[size] != c[1])
-					|| (s[size] && s[size] != c[2]))
+					&& (s[size] && s[size] != c[1])
+					&& (s[size] && s[size] != c[2]))
 				size++;
 			res[tab] = (char *) ft_calloc(1, size - i + 1);
 			ft_memcpy(res[tab], s + i, size - i);
@@ -65,7 +65,7 @@ static	void	ft_put_res(char **res, const char *s, char *c)
 char	**ft_split(char const *s)
 {
 	char	**res;
-	char	c[3];
+	char	*c;
 	int		tab;
 
 	c = " \n\t";
