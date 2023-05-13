@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 15:20:26 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/12 16:29:14 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/13 15:56:53 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ void	ft_init_list(t_stack *stack, int len)
 
 t_stack	*ft_split_int(char *av)
 {
-	char	**arg;
+	char	*arg;
 	int	i;
 	t_stack	*res;
 
-	arg = ft_split(av, ' ');
+	arg = ft_split(av);
 	if (!arg)
 		exit (ft_printf("Memory error\n"));
 	res = (t_stack *) ft_calloc (sizeof(t_stack), 1);

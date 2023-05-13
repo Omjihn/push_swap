@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:05:31 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/12 16:24:42 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/13 15:12:48 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,64 +14,136 @@
 
 void	ft_sort_a(t_stack *a)
 {
-//	int	i;
+	int	i;
+	int	j;
 
 	while (ft_is_sort(a) == 0)
 	{
-		if (a->list[0]->index > a->list[1]->index)
-		{
-			ft_sa(a);
-			ft_printf("sa\n");
-		}
-//		else if (a->list[1]->index > a->list[2]->index)
-//		{
-//			ft_ra(a);
-//			ft_sa(a);
-//			ft_printf("ra\nsa\n");
-//		}
-		else if (a->list[a->len - 1]->index > a->list[0]->index)
-		{
-			ft_rra(a);
-			ft_sa(a);
-			ft_ra(a);
-			ft_printf("rra\nsa\nra\n");
-		}
-		else
-		{
-			ft_ra(a);
-			ft_printf("ra\n");
-		}
-		/*sleep(1);
+		i = 0;
+                while (i < a->len - 2)
+                {
+                        if (a->list[i]->index == 1 &&
+                                        a->list[i + 1]->index == a->len)
+                        {
+                                if (i > ((a->len - 1) / 2))
+                                {
+                                        while (i < a->len)
+                                        {
+                                                ft_rra(a);
+                                                ft_printf("rra\n");
+                                                i++;
+                                        }
+                                }
+                                else
+                                {
+                                        while (i > 0)
+                                        {
+                                                ft_ra(a);
+                                                ft_printf("ra\n");
+                                                i--;
+                                        }
+                                }
+                                if (ft_is_sort(a) == 1)
+                                        return ;
+                        }
+                        i++;
+                }
+                i = 0;
+                while (a->list[i]->index < a->list[i + 1]->index && i < a->len - 1)
+                        i++;
+                j = i;
+                while (j > 0)
+                {
+                        ft_ra(a);
+                        ft_printf("ra\n");
+                        j--;
+                }
+                ft_sa(a);
+                ft_printf("sa\n");
+                while (i > 0)
+                {
+                        ft_rra(a);
+                        ft_printf("rra\n");
+                        i--;
+                }
+		/*
+		usleep(50000);
 		i = 0;
         	ft_printf("Stack a:\n");
 	        while (i < a->len)
         	{
                 	ft_printf("nb: %d - index: %d\n", a->list[i]->nb, a->list[i]->index);
 		i++;
-        	}*/
+        	}
+		*/
 	}
 }
 
 void	ft_sort_b(t_stack *b)
 {
+	int	i;
+	int	j;
+
 	while (ft_is_sort_rev(b) == 0)
 	{
-		if (b->list[0]->index < b->list[1]->index)
+		i = 0;
+		while (i < b->len - 2)
 		{
-			ft_sb(b);
-			ft_printf("sb\n");
+			if (b->list[i]->index == 1 &&
+					b->list[i + 1]->index == b->len)
+			{
+				if (i > ((b->len - 1) / 2))
+				{
+					while (i < b->len)
+					{
+						ft_rrb(b);
+						ft_printf("rrb\n");
+						i++;
+					}
+				}
+				else
+				{
+					while (i > 0)
+					{
+						ft_rb(b);
+						ft_printf("rb\n");
+						i--;
+					}
+				}
+				if (ft_is_sort_rev(b) == 1)
+					return ;
+			}
+			i++;
 		}
-		else if (b->list[b->len - 1]->index < b->list[0]->index)
+		i = 0;
+		while (b->list[i]->index > b->list[i + 1]->index && i < b->len - 1)
+			i++;
+		j = i;
+		while (j > 0)
 		{
-			ft_rrb(b);
-			ft_sb(b);
-			ft_printf("rrb\nsb\n");
+			ft_rb(b);
+			ft_printf("rb\n");
+			j--;
 		}
-		else
+		ft_sb(b);
+		ft_printf("sb\n");
+		while (i > 0)
 		{
 			ft_rrb(b);
 			ft_printf("rrb\n");
+			i--;
 		}
+		/*
+		usleep(50000);
+		i = 0;
+		
+		ft_printf("Stack b:\n");
+		while (i < b->len)
+		{
+			ft_printf("nb: %d - index: %d\n", b->list[i]->nb, b->list[i]->index);
+			i++;
+		}
+		*/
 	}
 }
 

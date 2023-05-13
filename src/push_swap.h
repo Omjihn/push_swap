@@ -36,7 +36,7 @@ int		ft_atoi(const char *nptr);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 
-char	**ft_split(char const *s, char c);
+char	**ft_split(char const *s;
 
 /*		OPERATORS		*/
 void	ft_sa(t_stack *a);

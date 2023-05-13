@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:59:24 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/11 19:07:01 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/13 15:21:03 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void	ft_no_numbers(int ac, char **av)
 					av[tab][i] != '-' &&
 					av[tab][i] != '+' &&
 					av[tab][i] != '\v' &&
-					av[tab][i] != '\t'))
+					av[tab][i] != '\t') &&
+					av[tab][i] != '\n')
 				exit(ft_printf("%s", MSG_NB));
 			i++;
 		}
