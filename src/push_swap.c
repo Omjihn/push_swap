@@ -12,34 +12,6 @@
 
 #include "push_swap.h"
 
-int	ft_is_sort(t_stack *stack)
-{
-	int	i;
-
-	i = 0;
-	while (i < stack->len - 1)
-	{
-		if (stack->list[i]->nb > stack->list[i + 1]->nb)
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-int	ft_is_sort_rev(t_stack *stack)
-{
-	int	i;
-
-	i = 0;
-	while (i < stack->len - 1)
-	{
-		if (stack->list[i]->nb < stack->list[i + 1]->nb)
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
 void	ft_push_swap(t_stack *a, t_stack *b)
 {
 //	int	i;

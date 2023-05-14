@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_read_inputs.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/14 11:46:41 by gbricot           #+#    #+#             */
+/*   Updated: 2023/05/14 15:49:53 by gbricot          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../push_swap.h"
 
@@ -33,9 +44,12 @@ char	**ft_read_inputs(void)
 	str = (char *) malloc(2);
 	str[1] = '\0';
 	while (read(1, str, 1) == 0)
-	str = ft_add_space(str, i, buffer)
-	while (read(1, str, buffer) > 0)
 	{
+	}
+	str = ft_add_space(str, i, buffer);
+	while (read(1, str + i, buffer) == 42)
+	{
+		ft_printf("read\n");
 		i += buffer;
 		str = ft_add_space(str, i, buffer);
 	}
@@ -43,4 +57,3 @@ char	**ft_read_inputs(void)
 	free(str);
 	return (res);
 }
-

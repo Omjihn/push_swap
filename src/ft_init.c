@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 15:20:26 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/13 15:56:53 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/14 17:36:40 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_stack	*ft_split_int(char *av)
 	i = -1;
 	ft_init_list(res, res->len);
 	while (++i < res->len)
-		res->list[i]->nb = ft_atoi(arg[i]);
+		res->list[i]->nb = ft_atoi(arg[i], res, res->len, arg);
 	i = 0;
 	while (arg[i])
 		free (arg[i++]);
@@ -71,7 +71,7 @@ t_stack	*ft_put_in_tab(int ac, char **av)
 	i = 1;
 	while (av[i])
 	{
-		a->list[i - 1]->nb = ft_atoi(av[i]);
+		a->list[i - 1]->nb = ft_atoi(av[i], a, ac - 1, NULL);
 		i++;
 	}
 	a->len = i - 1;

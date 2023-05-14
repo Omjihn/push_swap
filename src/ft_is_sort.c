@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_all.c                                      :+:      :+:    :+:   */
+/*   ft_is_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/06 15:34:16 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/14 15:22:21 by gbricot          ###   ########.fr       */
+/*   Created: 2023/05/14 15:51:44 by gbricot           #+#    #+#             */
+/*   Updated: 2023/05/14 15:54:05 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_free_all(t_stack *a, t_stack *b)
+int	ft_is_sort(t_stack *stack)
 {
 	int	i;
 
 	i = 0;
-	while (i < a->len)
+	while (i < stack->len - 1)
 	{
-		free (a->list[i]);
+		if (stack->list[i]->nb > stack->list[i + 1]->nb)
+			return (0);
 		i++;
 	}
-	free(a->list);
-	free (a);
-	if (b)
+	return (1);
+}
+
+int	ft_is_sort_rev(t_stack *stack)
+{
+	int	i;
+
+	i = 0;
+	while (i < stack->len - 1)
 	{
-		free (b->list);
-		free (b);
+		if (stack->list[i]->nb < stack->list[i + 1]->nb)
+			return (0);
+		i++;
 	}
-	exit (42);
+	return (1);
 }
