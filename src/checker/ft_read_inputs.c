@@ -43,15 +43,17 @@ char	**ft_read_inputs(void)
 	i = 1;
 	str = (char *) malloc(2);
 	str[1] = '\0';
-	while (read(1, str, 1) == 0)
+	while (read(0, str, 1) == 0)
 	{
+		usleep(1000);
 	}
+	usleep(1000);
 	str = ft_add_space(str, i, buffer);
-	while (read(1, str + i, buffer) == 42)
+	while (read(0, str + i, buffer) == 42)
 	{
-		ft_printf("read\n");
 		i += buffer;
 		str = ft_add_space(str, i, buffer);
+		usleep(1000);
 	}
 	res = ft_split(str);
 	free(str);

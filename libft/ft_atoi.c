@@ -14,43 +14,30 @@
 
 int	ft_will_of(int total, int sign, int add)
 {
-	int	max_add;
+	int	temp;
 
+	if (add)
+		add = 0;
+	temp = total * 10;
 	if (sign > 0)
 	{
-		max_add = 2147483647 - total;
-		if (max_add > add)
-			return (1);
-		else
+		if (temp / 10 == total)
 			return (0);
+		else
+			return (1);
 	}
-	else
+	return (0);
+	/*else
 	{
 		max_add = 2147483648 - total;
 		if (max_add > add)
 			return (1);
 		else
 			return (0);
-	}
+	}*/
 }
 
-void	ft_free_tab(t_stack *a, char **arg, int tabs)
-{
-	int	i;
-
-	i = 0;
-	if (arg)
-	{
-		while (arg[i])
-		{
-			free(arg[i]);
-			i++:
-		}
-		free(arg);
-	}
-}
-
-int	ft_atoi(const char *nptr, t_stack *a, int tabs, char **arg)
+int	ft_atoi(const char *nptr, t_stack *a)
 {
 	int	i;
 	int	sign;
@@ -71,7 +58,7 @@ int	ft_atoi(const char *nptr, t_stack *a, int tabs, char **arg)
 	while (nptr[i] && nptr[i] >= '0' && nptr[i] <= '9')
 	{
 		if (ft_will_of(result, sign, nptr[i] - 48) == 1)
-			ft_free_tab(a, arg, tabs)
+			a->len = 0;
 		result *= 10;
 		result += nptr[i] - 48;
 		i++;

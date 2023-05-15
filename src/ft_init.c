@@ -46,11 +46,16 @@ t_stack	*ft_split_int(char *av)
 	i = -1;
 	ft_init_list(res, res->len);
 	while (++i < res->len)
-		res->list[i]->nb = ft_atoi(arg[i], res, res->len, arg);
+		res->list[i]->nb = ft_atoi(arg[i], res);
 	i = 0;
 	while (arg[i])
 		free (arg[i++]);
 	free (arg);
+	if (res->len == 0)
+	{
+		ft_printf("Error wrong input check if your integers does not overflow\n");
+		ft_free_all(res, NULL);
+	}
 	return (res);
 }
 
@@ -68,13 +73,18 @@ t_stack	*ft_put_in_tab(int ac, char **av)
 	if (!a->list)
                 exit (ft_printf("Memory error\n"));
 	ft_init_list(a, ac - 1);
+	a->len = ac - 1;
 	i = 1;
 	while (av[i])
 	{
-		a->list[i - 1]->nb = ft_atoi(av[i], a, ac - 1, NULL);
+		a->list[i - 1]->nb = ft_atoi(av[i], a);
 		i++;
 	}
-	a->len = i - 1;
+	if (a->len == 0)
+	{
+		ft_printf("Error wrong input check if your integers does not overflow\n");
+		ft_free_all(a, NULL);
+	}
 	return (a);
 }
 

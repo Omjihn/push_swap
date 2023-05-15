@@ -32,7 +32,7 @@ typedef struct s_stack
 }			t_stack;
 
 /*		UTILITIES		*/
-int		ft_atoi(const char *nptr);
+int		ft_atoi(const char *nptr, t_stack *a);
 
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
