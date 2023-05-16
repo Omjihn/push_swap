@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:30:47 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/13 15:56:33 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/16 16:42:09 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ static int	ft_tab_cnt(char const *s, char *c)
 	while (s[i])
 	{
 		while ((s[i] && s[i] == c[0]) || (s[i] && s[i] == c[1])
-				|| (s[i] && s[i] == c[2]))
+			|| (s[i] && s[i] == c[2]))
 			i++;
 		if ((s[i] && s[i] != c[0]) && (s[i] && s[i] != c[1])
-				&& (s[i] && s[i] != c[2]))
+			&& (s[i] && s[i] != c[2]))
 			tab++;
 		while ((s[i] && s[i] != c[0]) && (s[i] && s[i] != c[1])
-				&& (s[i] && s[i] != c[2]))
+			&& (s[i] && s[i] != c[2]))
 			i++;
 	}
 	return (tab);
@@ -45,12 +45,12 @@ static	void	ft_put_res(char **res, const char *s, char *c)
 	while (s[i])
 	{
 		if ((s[i] && s[i] != c[0]) && (s[i] && s[i] != c[1])
-  				&& (s[i] && s[i] != c[2]))
+			&& (s[i] && s[i] != c[2]))
 		{
 			size = i;
 			while ((s[size] && s[size] != c[0])
-					&& (s[size] && s[size] != c[1])
-					&& (s[size] && s[size] != c[2]))
+				&& (s[size] && s[size] != c[1])
+				&& (s[size] && s[size] != c[2]))
 				size++;
 			res[tab] = (char *) ft_calloc(1, size - i + 1);
 			ft_memcpy(res[tab], s + i, size - i);

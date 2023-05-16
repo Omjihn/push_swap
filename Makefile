@@ -6,7 +6,7 @@
 #    By: gbricot <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 16:29:58 by gbricot           #+#    #+#              #
-#    Updated: 2023/05/14 15:54:21 by gbricot          ###   ########.fr        #
+#    Updated: 2023/05/16 16:39:31 by gbricot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,7 @@ bonus: $(OBJ_CHECKER)
 	@cd printf && make
 	$(CC) $(CFLAGS) $(OBJ_CHECKER) $(LIB) -o $(NAME_B)
 
-all: $(NAME) $(bonus)
+all: $(NAME) bonus
 
 clean:
 	@cd printf && make clean

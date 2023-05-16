@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 14:17:20 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/14 15:45:09 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/16 16:43:59 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_error_checker(t_stack *a, t_stack *b, char **actions, int i)
 static void	ft_exec_r(t_stack *a, t_stack *b, char **actions, int i)
 {
 	if (!actions[i][1])
-		ft_error_checker(a, b ,actions, i);
+		ft_error_checker(a, b, actions, i);
 	if (actions[i][1] == 'a')
 		ft_ra(a);
 	else if (actions[i][1] == 'b')
@@ -42,25 +42,25 @@ static void	ft_exec_r(t_stack *a, t_stack *b, char **actions, int i)
 	else if (actions[i][1] == 'r' && actions[i][2] == 'r')
 		ft_rrr(a, b);
 	else
-		ft_error_checker(a, b ,actions, i);
+		ft_error_checker(a, b, actions, i);
 }
 
 static void	ft_exec_p(t_stack *a, t_stack *b, char **actions, int i)
 {
 	if (!actions[i][1])
-		ft_error_checker(a, b ,actions, i);
+		ft_error_checker(a, b, actions, i);
 	if (actions[i][1] == 'a')
 		ft_pa(a, b);
 	else if (actions[i][1] == 'b')
 		ft_pb(a, b);
 	else
-		ft_error_checker(a, b ,actions, i);
+		ft_error_checker(a, b, actions, i);
 }
 
 static void	ft_exec_s(t_stack *a, t_stack *b, char **actions, int i)
 {
 	if (!actions[i][1])
-		ft_error_checker(a, b ,actions, i);
+		ft_error_checker(a, b, actions, i);
 	if (actions[i][1] == 'a')
 		ft_sa(a);
 	else if (actions[i][1] == 'b')
@@ -68,7 +68,7 @@ static void	ft_exec_s(t_stack *a, t_stack *b, char **actions, int i)
 	else if (actions[i][1] == 's')
 		ft_ss(a, b);
 	else
-		ft_error_checker(a, b ,actions, i);
+		ft_error_checker(a, b, actions, i);
 }
 
 void	ft_exec(t_stack *a, t_stack *b, char **actions)
@@ -85,7 +85,7 @@ void	ft_exec(t_stack *a, t_stack *b, char **actions)
 		else if (actions[i][0] && actions[i][0] == 'r')
 			ft_exec_r(a, b, actions, i);
 		else
-			ft_error_checker(a, b ,actions, i);
+			ft_error_checker(a, b, actions, i);
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:53:08 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/09 19:23:26 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/16 16:48:52 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_ss(t_stack *a, t_stack *b)
 
 void	ft_pa(t_stack *a, t_stack *b)
 {
-	int 	i;
+	int	i;
 
 	if (b->len == 0)
 		return ;

@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:05:31 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/13 15:12:48 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/16 17:06:53 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,16 +66,6 @@ void	ft_sort_a(t_stack *a)
                         ft_printf("rra\n");
                         i--;
                 }
-		/*
-		usleep(50000);
-		i = 0;
-        	ft_printf("Stack a:\n");
-	        while (i < a->len)
-        	{
-                	ft_printf("nb: %d - index: %d\n", a->list[i]->nb, a->list[i]->index);
-		i++;
-        	}
-		*/
 	}
 }
 
@@ -133,17 +123,6 @@ void	ft_sort_b(t_stack *b)
 			ft_printf("rrb\n");
 			i--;
 		}
-		/*
-		usleep(50000);
-		i = 0;
-		
-		ft_printf("Stack b:\n");
-		while (i < b->len)
-		{
-			ft_printf("nb: %d - index: %d\n", b->list[i]->nb, b->list[i]->index);
-			i++;
-		}
-		*/
 	}
 }
 
@@ -151,7 +130,6 @@ void	ft_sort_stacks(t_stack *a, t_stack *b)
 {
 //	if (ft_is_sort(a) == 0 && ft_is_sort(b) == 0)
 //		ft_sort_both(a, b);
-
 	if (ft_is_sort(a) == 0)
 		ft_sort_a(a);
 	if (ft_is_sort_rev(b) == 0)

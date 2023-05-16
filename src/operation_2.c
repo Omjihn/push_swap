@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 18:02:18 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/09 19:21:50 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/16 16:47:13 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_ra(t_stack *a)
 {
-	int	i;
+	int		i;
 	t_nb	*temp;
 
 	if (a->len == 0)
@@ -31,7 +31,7 @@ void	ft_ra(t_stack *a)
 
 void	ft_rb(t_stack *b)
 {
-	int     i;
+	int		i;
 	t_nb	*temp;
 
 	if (b->len == 0)

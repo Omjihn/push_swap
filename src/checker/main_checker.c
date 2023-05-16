@@ -6,15 +6,27 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 11:46:28 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/14 16:27:21 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/16 16:46:44 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+static	void	ft_free_actions(char **actions)
+{
+	int	i;
+
+	i = 0;
+	while (actions[i])
+	{
+		free (actions[i]);
+		i++;
+	}
+	free (actions);
+}
+
 int	main(int ac, char **av)
 {
-	int		i;
 	t_stack	*a;
 	t_stack	*b;
 	char	**actions;
@@ -31,13 +43,6 @@ int	main(int ac, char **av)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
-	i = 0;
-	while (actions[i])
-	{
-		free(actions[i]);
-		i++;
-	}
-	free(actions);
 	ft_free_all(a, b);
 	return (0);
 }

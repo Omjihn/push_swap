@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 16:59:46 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/11 18:21:25 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/16 16:50:26 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int	ft_add_one(t_stack *a, int index)
 {
-	int	i;
+	int		i;
 	t_nb	*res;
 
 	i = 0;
 	while (a->list[i]->index > 0)
 		i++;
 	res = a->list[i];
-	while(i < a->len)
+	while (i < a->len)
 	{
 		if (res->nb > a->list[i]->nb && a->list[i]->index == 0)
 			res = a->list[i];

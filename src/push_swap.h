@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:24:49 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/14 15:44:53 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/16 17:04:12 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 # define MSG_NB "Error please enter only numbers\n"
 # define MSG_CHK "Error wrong input '%s' is not an operator\n"
+# define MSG_OF "Error wrong input check if your integers does not overflow\n"
 
 typedef struct s_nb
 {
@@ -78,6 +79,5 @@ void	ft_exec(t_stack *a, t_stack *b, char **actions);
 void	ft_error_checker(t_stack *a, t_stack *b, char **actions, int i);
 
 char	**ft_read_inputs(void);
-
 
 #endif

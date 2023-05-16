@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 15:20:26 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/14 17:36:40 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/16 16:52:02 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	ft_init_list(t_stack *stack, int len)
 
 t_stack	*ft_split_int(char *av)
 {
+	int		i;
 	char	**arg;
-	int	i;
 	t_stack	*res;
 
 	arg = ft_split(av);
@@ -53,7 +53,7 @@ t_stack	*ft_split_int(char *av)
 	free (arg);
 	if (res->len == 0)
 	{
-		ft_printf("Error wrong input check if your integers does not overflow\n");
+		ft_printf(MSG_OF);
 		ft_free_all(res, NULL);
 	}
 	return (res);
@@ -61,8 +61,8 @@ t_stack	*ft_split_int(char *av)
 
 t_stack	*ft_put_in_tab(int ac, char **av)
 {
+	int		i;
 	t_stack	*a;
-	int	i;
 
 	if (ac == 2)
 		return (ft_split_int(av[1]));
@@ -71,7 +71,7 @@ t_stack	*ft_put_in_tab(int ac, char **av)
 		exit (ft_printf("Memory error\n"));
 	a->list = (t_nb **) ft_calloc (sizeof(t_nb *), ac - 1);
 	if (!a->list)
-                exit (ft_printf("Memory error\n"));
+		exit (ft_printf("Memory error\n"));
 	ft_init_list(a, ac - 1);
 	a->len = ac - 1;
 	i = 1;
@@ -82,7 +82,7 @@ t_stack	*ft_put_in_tab(int ac, char **av)
 	}
 	if (a->len == 0)
 	{
-		ft_printf("Error wrong input check if your integers does not overflow\n");
+		ft_printf(MSG_OF);
 		ft_free_all(a, NULL);
 	}
 	return (a);

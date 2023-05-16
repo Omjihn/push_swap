@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 09:20:22 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/16 13:47:47 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/16 14:11:35 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int	ft_will_of(int total, int sign, int add)
 			return (1);
 	}
 	temp *= -1;
-	if ((temp - add) / 10 == total * -1)
-		return (1);
-	else
+	if ((temp + add) / 10 == total * -1)
 		return (0);
+	else
+		return (1);
 	return (0);
 }
 

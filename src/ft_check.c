@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:59:24 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/13 15:21:03 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/16 16:48:31 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ void	ft_no_numbers(int ac, char **av)
 		tab++;
 	}
 }
-
-
 
 void	ft_check(t_stack *a)
 {
