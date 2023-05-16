@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 09:20:22 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/14 17:36:42 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/16 13:47:47 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,20 @@ int	ft_will_of(int total, int sign, int add)
 {
 	int	temp;
 
-	if (add)
-		add = 0;
-	temp = total * 10;
+	temp = (total * 10) + add;
 	if (sign > 0)
 	{
-		if (temp / 10 == total)
+		if ((temp - add) / 10 == total)
 			return (0);
 		else
 			return (1);
 	}
+	temp *= -1;
+	if ((temp - add) / 10 == total * -1)
+		return (1);
+	else
+		return (0);
 	return (0);
-	/*else
-	{
-		max_add = 2147483648 - total;
-		if (max_add > add)
-			return (1);
-		else
-			return (0);
-	}*/
 }
 
 int	ft_atoi(const char *nptr, t_stack *a)
@@ -46,8 +41,8 @@ int	ft_atoi(const char *nptr, t_stack *a)
 	sign = 1;
 	i = 0;
 	result = 0;
-	while (nptr[i] == ' ' || nptr[i] == '\v' || nptr[i] == '\t' 
-			|| nptr[i] == '\n')
+	while (nptr[i] == ' ' || nptr[i] == '\v' || nptr[i] == '\t'
+		|| nptr[i] == '\n')
 		i++;
 	if (nptr[i] == '-' || nptr[i] == '+')
 	{
