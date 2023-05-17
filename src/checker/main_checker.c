@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 11:46:28 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/16 16:46:44 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/17 13:50:25 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	main(int ac, char **av)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
+	ft_free_actions(actions);
 	ft_free_all(a, b);
 	return (0);
 }

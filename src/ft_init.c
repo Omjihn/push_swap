@@ -6,11 +6,17 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 15:20:26 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/16 16:52:02 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/17 18:24:24 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	ft_overflow(t_stack *a)
+{
+	ft_printf(MSG_OF);
+	ft_free_all(a, NULL);
+}
 
 void	ft_init_list(t_stack *stack, int len)
 {
@@ -36,13 +42,9 @@ t_stack	*ft_split_int(char *av)
 	if (!arg)
 		exit (ft_printf("Memory error\n"));
 	res = (t_stack *) ft_calloc (sizeof(t_stack), 1);
-	if (!res)
-		exit (ft_printf("Memory error\n"));
 	while (arg[res->len])
 		res->len++;
 	res->list = (t_nb **) ft_calloc (sizeof(t_nb *), res->len);
-	if (!res->list)
-		exit (ft_printf("Memory error\n"));
 	i = -1;
 	ft_init_list(res, res->len);
 	while (++i < res->len)
@@ -52,10 +54,7 @@ t_stack	*ft_split_int(char *av)
 		free (arg[i++]);
 	free (arg);
 	if (res->len == 0)
-	{
-		ft_printf(MSG_OF);
-		ft_free_all(res, NULL);
-	}
+		ft_overflow(res);
 	return (res);
 }
 
@@ -81,10 +80,7 @@ t_stack	*ft_put_in_tab(int ac, char **av)
 		i++;
 	}
 	if (a->len == 0)
-	{
-		ft_printf(MSG_OF);
-		ft_free_all(a, NULL);
-	}
+		ft_overflow(a);
 	return (a);
 }
 

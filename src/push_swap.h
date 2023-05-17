@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:24:49 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/16 17:04:12 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/17 18:31:03 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	ft_rrr(t_stack *a, t_stack *b);
 
 /*		PUSH_SWAP		*/
 int		ft_is_sort(t_stack *stack);
-int		ft_is_sort_rev(t_stack *stack);
 int		ft_add_one(t_stack *a, int index);
 int		ft_split_stack_2(t_stack *a, t_stack *b, int index, int i);
 
@@ -67,8 +66,8 @@ void	ft_init_list(t_stack *stack, int len);
 void	ft_push_swap(t_stack *a, t_stack *b);
 void	ft_split_stack(t_stack *a, t_stack *b);
 void	ft_sort_stacks(t_stack *a, t_stack *b);
-void	ft_sort_a(t_stack *a);
-void	ft_sort_b(t_stack *b);
+void	ft_sort_a(t_stack *a, t_stack *b);
+void	ft_sort_b(t_stack *b, t_stack *a, int index, int i);
 
 t_stack	*ft_split_int(char *av);
 t_stack	*ft_put_in_tab(int ac, char **av);
