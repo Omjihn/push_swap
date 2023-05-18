@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:59:24 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/16 16:48:31 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/18 13:55:42 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_check(t_stack *a)
 		{
 			if (a->list[i]->nb == a->list[j]->nb)
 			{
-				ft_printf("Error\n");
+				ft_printf("Error duplicates integers found\n");
 				ft_free_all(a, NULL);
 			}
 			j--;
