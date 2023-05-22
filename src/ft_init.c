@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 15:20:26 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/17 18:24:24 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/19 13:13:52 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ t_stack	*ft_split_int(char *av)
 	while (arg[i])
 		free (arg[i++]);
 	free (arg);
-	if (res->len == 0)
+	if (res->len < 0)
 		ft_overflow(res);
 	return (res);
 }
@@ -79,7 +79,7 @@ t_stack	*ft_put_in_tab(int ac, char **av)
 		a->list[i - 1]->nb = ft_atoi(av[i], a);
 		i++;
 	}
-	if (a->len == 0)
+	if (a->len < 0)
 		ft_overflow(a);
 	return (a);
 }
