@@ -6,56 +6,65 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 11:46:41 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/16 16:25:20 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/23 18:20:02 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static char	*ft_add_space(char *old, int i, int buffer)
+static char	*ft_add_str(char *all, char *add, int len)
 {
+	int		j;
+	int		i;
 	char	*res;
 
-	res = (char *) ft_calloc(1, i + buffer + 1);
+	i = 0;
+	while (all[i])
+		i++;
+	if (i + len == 0)
+		return (NULL);
+	res = (char *) ft_calloc(1, i + len + 1);
 	if (!res)
 	{
-		free (old);
+		free (all);
 		return (0);
 	}
 	i = 0;
-	while (old[i])
+	while (all[i])
 	{
-		res[i] = old[i];
+		res[i] = all[i];
 		i++;
 	}
-	free (old);
+	j = 0;
+	while (add[j])
+	{
+		res[i + j] = add[j];
+		j++;
+	}
+	free (all);
 	return (res);
 }
 
-char	**ft_read_inputs(void)
+char	**ft_read_inputs(t_stack *a)
 {
-	int		i;
-	int		buffer;
-	char	*str;
+	int		nb_read;
+	char	*all;
+	char	str[BUFFER_SIZE];
 	char	**res;
 
-	buffer = 42;
-	i = 1;
-	str = (char *) malloc(2);
-	str[1] = '\0';
-	while (read(0, str, 1) == 0)
+	while (1)
 	{
-		usleep(1000);
+		if ((nb_read = read(0, str, BUFFER_SIZE)) == -1)
+			ft_free_all(a, NULL);
+		if (nb_read == 0)
+			break ;
+		str[nb_read] = '\0';
+		all = ft_add_str(all, str, nb_read);
+		if (!all)
+			ft_free_all(a, NULL);
+		ft_printf("%d", all);
 	}
-	usleep(1000);
-	str = ft_add_space(str, i, buffer);
-	while (read(0, str + i, buffer) == 42)
-	{
-		i += buffer;
-		str = ft_add_space(str, i, buffer);
-		usleep(1000);
-	}
-	res = ft_split(str);
-	free(str);
+	res = ft_split(all);
+	free (all);
 	return (res);
 }

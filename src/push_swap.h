@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include "../printf/ft_printf.h"
 
+# define BUFFER_SIZE 1024
 # define MSG_NB "Error please enter only numbers\n"
 # define MSG_CHK "Error wrong input '%s' is not an operator\n"
 # define MSG_OF "Error wrong input check if your integers does not overflow\n"
@@ -77,6 +78,6 @@ t_stack	*ft_init_b(int len);
 void	ft_exec(t_stack *a, t_stack *b, char **actions);
 void	ft_error_checker(t_stack *a, t_stack *b, char **actions, int i);
 
-char	**ft_read_inputs(void);
+char	**ft_read_inputs(t_stack *a);
 
 #endif
