@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 15:26:08 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/23 13:33:16 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/26 17:09:55 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ void	ft_push_swap(t_stack *a, t_stack *b)
 		ft_three_nb(a);
 		ft_free_all(a, b);
 	}
-	ft_split_stack(a, b);
-	ft_sort_stacks(a, b);
+	//ft_split_stack(a, b);
+	//ft_sort_stacks(a, b);
+	ft_radix(a, b);
 	ft_free_all(a, b);
 }

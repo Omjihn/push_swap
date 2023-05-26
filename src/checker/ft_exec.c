@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 14:17:20 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/16 16:43:59 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/24 13:36:40 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_error_checker(t_stack *a, t_stack *b, char **actions, int i)
 {
-	ft_printf(MSG_CHK, actions[i]);
+	ft_printf(MSG_CHK);
 	i = 0;
 	while (actions[i])
 	{
