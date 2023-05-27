@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 16:01:41 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/26 17:09:53 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/27 19:38:15 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,11 @@
 
 void	ft_radix(t_stack *a, t_stack *b)
 {
-	int		j;
-	long int	i;
+	unsigned long int	bit;
 
-	i = 1;
-	while (b->len != 0 && ft_is_sort(a) == 0)
+	bit = 1;
+	while (i <= 2147483648 || ft_is_sort(a) == 0)
 	{
-		while (i <= 2147483648)
-		{
-			while ()
-			if (a->list[j]->nb & i)
-			{
-				ft_pb(a, b);
-				ft_printf("pb\n");
-			}
 
+	}
+}

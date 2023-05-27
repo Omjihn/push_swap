@@ -69,6 +69,7 @@ void	ft_split_stack(t_stack *a, t_stack *b);
 void	ft_sort_stacks(t_stack *a, t_stack *b);
 void	ft_sort_a(t_stack *a, t_stack *b);
 void	ft_sort_b(t_stack *b, t_stack *a, int index, int i);
+void	ft_radix(t_stack *a, t_stack *b);
 
 t_stack	*ft_split_int(char *av);
 t_stack	*ft_put_in_tab(int ac, char **av);
