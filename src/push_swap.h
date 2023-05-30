@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:24:49 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/24 13:39:04 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/30 18:38:19 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include "../printf/ft_printf.h"
 
-# define BUFFER_SIZE 24
+# define BUFFER_SIZE 256
 # define MSG_NB "Error please enter only numbers\n"
 # define MSG_CHK "Error wrong operator\n"
 # define MSG_OF "Error wrong input check if your integers does not overflow\n"
@@ -76,9 +76,9 @@ t_stack	*ft_put_in_tab(int ac, char **av);
 t_stack	*ft_init_b(int len);
 
 /*		 CHECKER 		*/
-void	ft_exec(t_stack *a, t_stack *b, char **actions);
-void	ft_error_checker(t_stack *a, t_stack *b, char **actions, int i);
+void	ft_exec(t_stack *a, t_stack *b, char *actions);
+void	ft_error_checker(t_stack *a, t_stack *b, char *actions);
 
-char	**ft_read_inputs(t_stack *a);
+char	*ft_read_inputs(t_stack *a);
 
 #endif
