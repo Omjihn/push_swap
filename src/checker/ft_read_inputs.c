@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 11:46:41 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/30 19:09:46 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/31 16:46:36 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ char	*ft_read_inputs(t_stack *a)
 		}
 		if (nb_read == 0 || nb_read == 1)
 			break ;
-		usleep(100);
 	}
 	free(buffer);
 	return (actions);

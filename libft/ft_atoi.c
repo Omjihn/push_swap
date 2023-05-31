@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 09:20:22 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/19 13:10:24 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/31 17:05:36 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,23 @@ int	ft_will_of(int total, int sign, int add)
 	return (0);
 }
 
+int	ft_pre_atoi(const char *nptr, t_stack *a)
+{
+	int	i;
+
+	i = 0;
+	while (nptr[i])
+	{
+		if (i > 0 && nptr[i] == '-')
+		{
+			a->len = -2;
+			return (0);
+		}
+		i++;
+	}
+	return (ft_atoi(nptr, a));
+}
+
 int	ft_atoi(const char *nptr, t_stack *a)
 {
 	int	i;
@@ -55,7 +72,7 @@ int	ft_atoi(const char *nptr, t_stack *a)
 	while (nptr[i] && nptr[i] >= '0' && nptr[i] <= '9')
 	{
 		if (ft_will_of(result, sign, nptr[i] - 48) == 1 && a->len > 0)
-			a->len *= -1;
+			a->len = -1;
 		result *= 10;
 		result += nptr[i] - 48;
 		i++;

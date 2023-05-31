@@ -6,13 +6,13 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 15:26:08 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/30 17:00:14 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/31 16:03:16 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_three_nb_next(t_stack *a)
+static void	ft_sort_three_next(t_stack *a)
 {
 	if (a->list[0]->index == 3 && a->list[1]->index == 1
 		&& a->list[2]->index == 2)
@@ -29,7 +29,7 @@ static void	ft_three_nb_next(t_stack *a)
 	}
 }
 
-static void	ft_three_nb(t_stack *a)
+void	ft_sort_three(t_stack *a)
 {
 	if (a->list[0]->index == 1 && a->list[1]->index == 3
 		&& a->list[2]->index == 2)
@@ -51,7 +51,7 @@ static void	ft_three_nb(t_stack *a)
 		ft_printf("rra\n");
 	}
 	else
-		ft_three_nb_next(a);
+		ft_sort_three_next(a);
 }
 
 void	ft_push_swap(t_stack *a, t_stack *b)
@@ -64,13 +64,14 @@ void	ft_push_swap(t_stack *a, t_stack *b)
 	{
 		ft_sa(a);
 		ft_printf("sa\n");
-		ft_free_all(a, b);
 	}
 	else if (a->len == 3)
-	{
-		ft_three_nb(a);
-		ft_free_all(a, b);
-	}
-	ft_radix(a, b);
+		ft_sort_three(a);
+	else if (a->len == 4)
+		ft_sort_four(a, b);
+	else if (a->len == 5)
+		ft_sort_five(a, b);
+	else
+		ft_radix(a, b);
 	ft_free_all(a, b);
 }

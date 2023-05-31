@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 15:20:26 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/19 13:13:52 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/31 09:54:44 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 static void	ft_overflow(t_stack *a)
 {
-	ft_printf(MSG_OF);
+	if (a->len == -1)
+		ft_printf(MSG_OF);
+	else
+		ft_printf("Error please put '-' only before a number\n");
 	ft_free_all(a, NULL);
 }
 
@@ -48,7 +51,7 @@ t_stack	*ft_split_int(char *av)
 	i = -1;
 	ft_init_list(res, res->len);
 	while (++i < res->len)
-		res->list[i]->nb = ft_atoi(arg[i], res);
+		res->list[i]->nb = ft_pre_atoi(arg[i], res);
 	i = 0;
 	while (arg[i])
 		free (arg[i++]);
@@ -76,7 +79,7 @@ t_stack	*ft_put_in_tab(int ac, char **av)
 	i = 1;
 	while (av[i])
 	{
-		a->list[i - 1]->nb = ft_atoi(av[i], a);
+		a->list[i - 1]->nb = ft_pre_atoi(av[i], a);
 		i++;
 	}
 	if (a->len < 0)

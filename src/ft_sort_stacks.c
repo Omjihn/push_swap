@@ -6,89 +6,106 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:05:31 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/17 18:30:28 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/31 16:59:32 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_sort_a_2(t_stack *a, t_stack *b, int index, int i)
+static void	ft_sort_three_of_five_next(t_stack *a)
 {
-	while (a->len > 0)
+	if (a->list[0]->index == 5 && a->list[1]->index == 3
+		&& a->list[2]->index == 4)
 	{
-		i = 0;
-		while (a->list[i]->index != index)
-			i++;
-		if (i > a->len / 2)
-		{
-			while (a->list[0]->index != index)
-			{	
-				ft_rra(a);
-				ft_printf("rra\n");
-			}
-		}
-		else
-		{
-			while (a->list[0]->index != index)
-			{
-				ft_ra(a);
-				ft_printf("ra\n");
-			}
-		}
-		ft_pb(a, b);
-		ft_printf("pb\n");
-		index++;
+		ft_ra(a);
+		ft_printf("ra\n");
+	}
+	else if (a->list[0]->index == 5 && a->list[1]->index == 4
+		&& a->list[2]->index == 3)
+	{
+		ft_sa(a);
+		ft_rra(a);
+		ft_printf("sa\nrra\n");
 	}
 }
 
-void	ft_sort_a(t_stack *a, t_stack *b)
+static void	ft_sort_three_of_five(t_stack *a)
 {
-	int	temp;
-	int	index;
-
-	temp = a->len;
-	index = 1 + b->len;
-	ft_sort_a_2(a, b, index, 0);
-	while (temp > 0)
+	if (a->list[0]->index == 3 && a->list[1]->index == 5
+		&& a->list[2]->index == 4)
 	{
-		ft_pa(a, b);
-		ft_printf("pa\n");
-		temp--;
+		ft_sa(a);
+		ft_ra(a);
+		ft_printf("sa\nra\n");
 	}
+	else if (a->list[0]->index == 4 && a->list[1]->index == 3
+		&& a->list[2]->index == 5)
+	{
+		ft_sa(a);
+		ft_printf("sa\n");
+	}
+	else if (a->list[0]->index == 4 && a->list[1]->index == 5
+		&& a->list[2]->index == 3)
+	{
+		ft_rra(a);
+		ft_printf("rra\n");
+	}
+	else
+		ft_sort_three_of_five_next(a);
 }
 
-void	ft_sort_b(t_stack *b, t_stack *a, int index, int i)
+static void	ft_sort_and_send_b(t_stack *a, t_stack *b)
 {
+	if (b->list[0]->index == 1)
+	{
+		ft_sb(b);
+		ft_printf("sb\n");
+	}
 	while (b->len > 0)
 	{
-		i = 0;
-		while (b->list[i]->index != index)
-			i++;
-		if (i > b->len / 2)
-		{
-			while (b->list[0]->index != index)
-			{
-				ft_rrb(b);
-				ft_printf("rrb\n");
-			}
-		}
-		else
-		{
-			while (b->list[0]->index != index)
-			{
-				ft_rb(b);
-				ft_printf("rb\n");
-			}
-		}
 		ft_pa(a, b);
 		ft_printf("pa\n");
-		index--;
 	}
 }
 
-void	ft_sort_stacks(t_stack *a, t_stack *b)
+void	ft_sort_four(t_stack *a, t_stack *b)
 {
-	if (ft_is_sort(a) == 0)
-		ft_sort_a(a, b);
-	ft_sort_b(b, a, b->len, 0);
+	while (a->len > 2)
+	{
+		if (a->list[0]->index <= 2)
+		{
+			ft_pb(a, b);
+			ft_printf("pb\n");
+		}
+		else
+		{
+			ft_ra(a);
+			ft_printf("ra\n");
+		}
+	}
+	if (a->list[0]->index == 4)
+	{
+		ft_sa(a);
+		ft_printf("sa\n");
+	}
+	ft_sort_and_send_b(a, b);
+}
+
+void	ft_sort_five(t_stack *a, t_stack *b)
+{
+	while (a->len > 3)
+	{
+		if (a->list[0]->index <= 2)
+		{
+			ft_pb(a, b);
+			ft_printf("pb\n");
+		}
+		else
+		{
+			ft_ra(a);
+			ft_printf("ra\n");
+		}
+	}
+	ft_sort_three_of_five(a);
+	ft_sort_and_send_b(a, b);
 }

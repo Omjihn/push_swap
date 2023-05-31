@@ -6,7 +6,7 @@
 /*   By: gbricot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:24:49 by gbricot           #+#    #+#             */
-/*   Updated: 2023/05/30 18:38:19 by gbricot          ###   ########.fr       */
+/*   Updated: 2023/05/31 16:04:54 by gbricot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	ft_rrr(t_stack *a, t_stack *b);
 /*		PUSH_SWAP		*/
 int		ft_is_sort(t_stack *stack);
 int		ft_add_one(t_stack *a, int index);
+int		ft_pre_atoi(const char *nptr, t_stack *a);
 int		ft_split_stack_2(t_stack *a, t_stack *b, int index, int i);
 
 void	ft_check(t_stack *a);
@@ -65,10 +66,9 @@ void	ft_free_all(t_stack *a, t_stack *b);
 void	ft_add_index(t_stack *a);
 void	ft_init_list(t_stack *stack, int len);
 void	ft_push_swap(t_stack *a, t_stack *b);
-void	ft_split_stack(t_stack *a, t_stack *b);
-void	ft_sort_stacks(t_stack *a, t_stack *b);
-void	ft_sort_a(t_stack *a, t_stack *b);
-void	ft_sort_b(t_stack *b, t_stack *a, int index, int i);
+void	ft_sort_three(t_stack *a);
+void	ft_sort_four(t_stack *a, t_stack *b);
+void	ft_sort_five(t_stack *a, t_stack *b);
 void	ft_radix(t_stack *a, t_stack *b);
 
 t_stack	*ft_split_int(char *av);
